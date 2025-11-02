@@ -1,7 +1,14 @@
 @font-face {
-    font-family: 'IRANSans';
-    src: url('https://cdn.fontcdn.ir/Font/Persian/IRANSans/IRANSansWeb.woff2') format('woff2');
+    font-family: 'Vazir';
+    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/Vazir-Regular.woff2') format('woff2');
     font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/Vazir-Bold.woff2') format('woff2');
+    font-weight: bold;
     font-style: normal;
 }
 
@@ -9,7 +16,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'IRANSans', Arial, sans-serif;
+    font-family: 'Vazir', Arial, sans-serif;
 }
 
 body {
@@ -33,29 +40,99 @@ header {
     border-bottom: 1px solid #e1e8ed;
 }
 
+.logo {
+    text-align: center;
+    flex-grow: 1;
+}
+
 .logo h1 {
     color: #1a73e8;
     font-size: 28px;
     font-weight: bold;
 }
 
-nav ul {
+.placeholder {
+    width: 40px; /* همان اندازه منوی همبرگر */
+}
+
+/* منوی همبرگری */
+.hamburger-menu {
+    position: relative;
+    z-index: 1000;
+}
+
+.hamburger-icon {
+    width: 40px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #1a73e8;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active .hamburger-icon span:nth-child(1) {
+    transform: translateY(13px) rotate(45deg);
+}
+
+.hamburger-menu.active .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-icon span:nth-child(3) {
+    transform: translateY(-13px) rotate(-45deg);
+}
+
+.menu-items {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: white;
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active .menu-items {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-items ul {
     list-style: none;
 }
 
-nav ul li {
-    margin-left: 20px;
+.menu-items ul li {
+    padding: 15px;
+    border-bottom: 1px solid #f1f1f1;
 }
 
-nav ul li a {
+.menu-items ul li:last-child {
+    border-bottom: none;
+}
+
+.menu-items ul li a {
     text-decoration: none;
     color: #1a73e8;
     font-weight: 500;
+    display: block;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+.menu-items ul li a:hover {
     color: #0d47a1;
 }
 
@@ -211,14 +288,6 @@ footer {
     .service-section {
         height: 400px;
         margin-bottom: 30px;
-    }
-
-    header {
-        flex-direction: column;
-    }
-
-    nav ul {
-        margin-top: 20px;
     }
 
     .footer-content {
