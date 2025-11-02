@@ -32,4 +32,19 @@ document.addEventListener('DOMContentLoaded', function() {
             face.style.backgroundPosition = `${x * 10}px ${y * 10}px`;
         });
     });
+    
+    // منوی همبرگری
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const hamburgerIcon = document.querySelector('.hamburger-icon');
+    
+    hamburgerIcon.addEventListener('click', function() {
+        hamburgerMenu.classList.toggle('active');
+    });
+    
+    // بستن منو با کلیک خارج از آن
+    document.addEventListener('click', function(event) {
+        if (!hamburgerMenu.contains(event.target) && hamburgerMenu.classList.contains('active')) {
+            hamburgerMenu.classList.remove('active');
+        }
+    });
 });
