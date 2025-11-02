@@ -23,14 +23,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // افکت پارالاکس برای پس‌زمینه
+    // افکت پارالاکس برای المان‌های شیشه‌ای
     document.addEventListener('mousemove', function(e) {
         const x = e.clientX / window.innerWidth;
         const y = e.clientY / window.innerHeight;
         
-        document.querySelectorAll('.glass-effect').forEach(element => {
-            element.style.backgroundPosition = `${x * 20}px ${y * 20}px`;
-            element.style.boxShadow = `${x * 10 - 5}px ${y * 10 - 5}px 30px rgba(0, 0, 0, 0.3)`;
+        document.querySelectorAll('.liquid-glass').forEach(element => {
+            // حرکت سایه با موس
+            element.style.boxShadow = `
+                ${x * 20 - 10}px ${y * 20 - 10}px 30px rgba(0, 0, 0, 0.15),
+                0 1px 8px rgba(255, 255, 255, 0.2) inset,
+                0 -4px 5px rgba(0, 0, 0, 0.1) inset
+            `;
+            
+            // حرکت گرادیان با موس
+            const gradientX = x * 100;
+            const gradientY = y * 100;
+            element.style.backgroundPosition = `${gradientX}% ${gradientY}%`;
         });
     });
     
@@ -42,4 +51,13 @@ document.addEventListener('DOMContentLoaded', function() {
             logo.style.textShadow = '0 0 5px rgba(255, 255, 255, 0.3)';
         }, 500);
     }, 2000);
+    
+    // افکت موج برای المان‌های شیشه‌ای
+    const liquidElements = document.querySelectorAll('.liquid-glass');
+    liquidElements.forEach(element => {
+        // ایجاد افکت موج با CSS Animation
+        const wave = document.createElement('div');
+        wave.classList.add('liquid-wave');
+        element.appendChild(wave);
+    });
 });
