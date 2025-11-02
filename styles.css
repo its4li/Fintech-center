@@ -1,6 +1,10 @@
 @font-face {
-    font-family: 'IRANSans';
-    src: url('https://cdn.fontcdn.ir/Font/Persian/IRANSans/IRANSansWeb.woff2') format('woff2');
+    font-family: 'Vazir';
+    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/Vazir.eot');
+    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/Vazir.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/Vazir.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/Vazir.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/Vazir.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -9,126 +13,125 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'IRANSans', Arial, sans-serif;
 }
 
 body {
-    background-color: #fff;
-    color: #fff;
-    overflow-x: hidden;
+    font-family: 'Vazir', Tahoma, Arial, sans-serif;
+    background-color: #004a98; /* رنگ پس زمینه اصلی */
+    color: white;
+    line-height: 1.6;
+    direction: rtl;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 header {
-    background-color: #001233;
-    padding: 1rem 2rem;
+    text-align: center;
+    padding: 30px 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.services-container {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
-    height: 70px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 40px 0;
 }
 
-.logo img {
-    height: 40px;
+.service-section {
+    flex-basis: 48%;
+    height: 500px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
 }
 
-main {
-    height: 100vh;
-    background-color: #001233;
+.service-section:hover {
+    transform: scale(1.03) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background-color: #42b8fd; /* رنگ هنگام هاور */
+    z-index: 10;
+}
+
+.service-content {
+    padding: 30px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+}
+
+.service-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
     text-align: center;
     position: relative;
 }
 
-.hero {
-    max-width: 800px;
-    padding: 0 2rem;
+.service-section h2:after {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: -0.5px;
-}
-
-.hero p {
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-    color: #ccc;
-    line-height: 1.6;
-}
-
-.scroll-down {
-    position: absolute;
-    bottom: 2rem;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    animation: bounce 2s infinite;
-}
-
-.scroll-down a {
-    color: #fff;
-    font-size: 2rem;
-    text-decoration: none;
-    background-color: transparent;
     width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    height: 3px;
+    background-color: white;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-list li {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
     display: flex;
-    justify-content: center;
     align-items: center;
-    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
+.service-list li:hover {
+    transform: translateX(-5px);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-#content {
-    min-height: 100vh;
-    background-color: #fff;
-    color: #333;
-    padding: 4rem 2rem;
+.service-list i {
+    margin-left: 10px;
+    font-size: 1.2rem;
 }
 
-/* Responsive Design */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* رسپانسیو */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
+    .services-container {
+        flex-direction: column;
     }
     
-    .hero p {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
+    .service-section {
+        flex-basis: 100%;
+        margin-bottom: 20px;
     }
 }
