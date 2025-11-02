@@ -28,8 +28,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const x = e.clientX / window.innerWidth;
         const y = e.clientY / window.innerHeight;
         
-        document.querySelectorAll('.front-face').forEach(face => {
-            face.style.backgroundPosition = `${x * 10}px ${y * 10}px`;
+        document.querySelectorAll('.glass-effect').forEach(element => {
+            element.style.backgroundPosition = `${x * 20}px ${y * 20}px`;
+            element.style.boxShadow = `${x * 10 - 5}px ${y * 10 - 5}px 30px rgba(0, 0, 0, 0.3)`;
         });
     });
+    
+    // افکت درخشش برای لوگو
+    const logo = document.querySelector('.logo');
+    setInterval(() => {
+        logo.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.8)';
+        setTimeout(() => {
+            logo.style.textShadow = '0 0 5px rgba(255, 255, 255, 0.3)';
+        }, 500);
+    }, 2000);
 });
