@@ -51,8 +51,8 @@ header {
     font-weight: bold;
 }
 
-.placeholder {
-    width: 40px; /* همان اندازه منوی همبرگر */
+.placeholder-right {
+    width: 30px; /* همان اندازه منوی همبرگر */
 }
 
 /* منوی همبرگری */
@@ -62,8 +62,8 @@ header {
 }
 
 .hamburger-icon {
-    width: 40px;
-    height: 30px;
+    width: 30px; /* کوچکتر شده از 40px */
+    height: 24px; /* کوچکتر شده از 30px */
     position: relative;
     cursor: pointer;
     display: flex;
@@ -73,14 +73,14 @@ header {
 
 .hamburger-icon span {
     display: block;
-    height: 3px;
+    height: 2px; /* کوچکتر شده از 3px */
     width: 100%;
     background-color: #1a73e8;
     transition: all 0.3s ease;
 }
 
 .hamburger-menu.active .hamburger-icon span:nth-child(1) {
-    transform: translateY(13px) rotate(45deg);
+    transform: translateY(11px) rotate(45deg); /* تنظیم شده برای اندازه جدید */
 }
 
 .hamburger-menu.active .hamburger-icon span:nth-child(2) {
@@ -88,15 +88,16 @@ header {
 }
 
 .hamburger-menu.active .hamburger-icon span:nth-child(3) {
-    transform: translateY(-13px) rotate(-45deg);
+    transform: translateY(-11px) rotate(-45deg); /* تنظیم شده برای اندازه جدید */
 }
 
 .menu-items {
     position: absolute;
-    top: 50px;
+    top: 40px; /* کوچکتر شده از 50px */
+    right: auto;
     left: 0;
     background-color: white;
-    width: 200px;
+    width: 180px; /* کوچکتر شده از 200px */
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     opacity: 0;
@@ -116,7 +117,7 @@ header {
 }
 
 .menu-items ul li {
-    padding: 15px;
+    padding: 12px; /* کوچکتر شده از 15px */
     border-bottom: 1px solid #f1f1f1;
 }
 
@@ -130,6 +131,7 @@ header {
     font-weight: 500;
     display: block;
     transition: color 0.3s ease;
+    font-size: 14px; /* کوچکتر شده از اندازه پیش‌فرض */
 }
 
 .menu-items ul li a:hover {
